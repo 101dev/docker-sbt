@@ -8,6 +8,7 @@ ENV SBT_VERSION 0.13.11
 RUN \
   apt-get update && \
   apt-get install -y curl && \
+  apt-get upgrade -y && \
   curl -L -o sbt-$SBT_VERSION.deb https://dl.bintray.com/sbt/debian/sbt-$SBT_VERSION.deb && \
   dpkg -i sbt-$SBT_VERSION.deb && \
   rm sbt-$SBT_VERSION.deb
