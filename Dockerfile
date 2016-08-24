@@ -1,17 +1,6 @@
-# Pull base image
-FROM 1on1/docker-oracle_java8
+FROM sandinh/sbt-node
 
-ENV SCALA_VERSION 2.11.7
-ENV SBT_VERSION 0.13.11
-
-# Install sbt
-RUN \
-  apt-get update && \
-  apt-get install -y curl && \
-  apt-get upgrade -y && \
-  curl -L -o sbt-$SBT_VERSION.deb https://dl.bintray.com/sbt/debian/sbt-$SBT_VERSION.deb && \
-  dpkg -i sbt-$SBT_VERSION.deb && \
-  rm sbt-$SBT_VERSION.deb
-
-# Define working directory
-WORKDIR /root
+RUN curl -L https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 | \
+        tar -jx -O phantomjs-2.1.1-linux-x86_64/bin/phantomjs | \
+        sudo tee /usr/local/bin/phantomjs > /dev/null && \
+      sudo chmod +x /usr/local/bin/phantomjs
