@@ -5,4 +5,4 @@ RUN curl -L https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linu
         sudo tee /usr/local/bin/phantomjs > /dev/null && \
       sudo chmod +x /usr/local/bin/phantomjs
 
-RUN mkdir /builds && chown sandinh:sandinh /builds
+RUN sudo mkdir /builds && sudo chown sandinh:sandinh /builds
